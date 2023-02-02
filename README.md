@@ -1,1 +1,1 @@
-# Snaky
+# esbuild-svelte-ts
