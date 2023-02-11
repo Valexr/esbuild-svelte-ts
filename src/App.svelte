@@ -7,6 +7,10 @@
     export let name: Header;
 </script>
 
+<svelte:head>
+    <title>{name}</title>
+</svelte:head>
+
 <header>
     <button>Some</button>
     <h1>
