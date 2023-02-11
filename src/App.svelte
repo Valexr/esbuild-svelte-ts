@@ -4,7 +4,7 @@
 </script>
 
 <script lang="ts">
-    let header: Header = "esbuild-svelte-ts";
+    export let name: Header;
 </script>
 
 <header>
@@ -18,7 +18,7 @@
         >
             {@html gh}
         </a>
-        {header}
+        {name}
     </h1>
     <button>Else</button>
 </header>
