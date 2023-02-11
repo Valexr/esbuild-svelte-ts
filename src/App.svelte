@@ -1,10 +1,11 @@
 <script lang="ts" context="module">
-    import type { Header } from "$types";
     import gh from "$svg/gh.svg";
+    import type { Name, Repository } from "$types";
 </script>
 
 <script lang="ts">
-    export let name: Header;
+    export let name: Name;
+    export let repository: Repository;
 </script>
 
 <svelte:head>
@@ -14,12 +15,7 @@
 <header>
     <button>Some</button>
     <h1>
-        <a
-            href="https://github.com/Valexr/esbuild-svelte-ts"
-            target="_blank"
-            rel="noreferrer"
-            id="gh"
-        >
+        <a href={repository.url} target="_blank" rel="noreferrer" id="gh">
             {@html gh}
         </a>
         {name}

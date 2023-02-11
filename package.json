@@ -7,6 +7,10 @@
         "build": "node esbuild",
         "dev": "node esbuild --dev"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Valexr/slidy.git"
+    },
     "devDependencies": {
         "@tsconfig/svelte": "^3.0.0",
         "esbuild": "^0.17.7",
