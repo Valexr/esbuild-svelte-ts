@@ -9,7 +9,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Valexr/slidy.git"
+        "url": "https://github.com/Valexr/esbuild-svelte-ts.git"
     },
     "devDependencies": {
         "@tsconfig/svelte": "^3.0.0",
