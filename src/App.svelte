@@ -1,5 +1,6 @@
 <script lang="ts" context="module">
     import type { Header } from "$types";
+    import gh from "$assets/gh.svg";
 </script>
 
 <script lang="ts">
@@ -7,7 +8,17 @@
 </script>
 
 <main>
-    <h1>{header}</h1>
+    <h1>
+        <a
+            href="https://github.com/Valexr/esbuild-svelte-ts"
+            target="_blank"
+            rel="noreferrer"
+            id="gh"
+        >
+            {@html gh}
+        </a>
+        {header}
+    </h1>
 </main>
 
 <style>
