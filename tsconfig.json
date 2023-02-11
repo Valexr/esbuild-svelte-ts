@@ -2,8 +2,8 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "$assets/*": [
-                "src/assets/*"
+            "$svg/*": [
+                "src/svg/*"
             ],
             "$types": [
                 "src/types.ts"
