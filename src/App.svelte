@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-    import gh from "$svg/gh.svg";
+    import Gh from "$lib/components/Gh.svelte";
     import type { Name, Repository } from "$types";
 </script>
 
@@ -15,9 +15,7 @@
 <header>
     <button>Some</button>
     <h1>
-        <a href={repository.url} target="_blank" rel="noreferrer" id="gh">
-            {@html gh}
-        </a>
+        <Gh {repository} />
         {name}
     </h1>
     <button>Else</button>
@@ -27,7 +25,9 @@
     <p>Main</p>
 </main>
 
-<footer><p>Footer</p></footer>
+<footer>
+    <p>Footer</p>
+</footer>
 
 <style>
     @import "app.css";
