@@ -3,6 +3,7 @@ import svelte from 'esbuild-svelte';
 import preprocess from 'svelte-preprocess';
 import rm from './env/rm.js';
 import log from './env/log.js';
+import meta from './env/meta.js';
 
 const DEV = process.argv.includes('--dev');
 
@@ -35,7 +36,8 @@ const buildOptions = {
     plugins: [svelte(svelteOptions), log],
     inject: DEV ? ['./env/lr.js'] : [],
     legalComments: "none",
-    logLevel: 'info'
+    logLevel: 'info',
+    metafile: !DEV
 };
 
 await rm('public/build');
@@ -49,5 +51,5 @@ if (DEV) {
     process.on('SIGTERM', ctx.dispose);
     process.on("exit", ctx.dispose);
 } else {
-    await build(buildOptions);
+    await meta(await build(buildOptions));
 }
