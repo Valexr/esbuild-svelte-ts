@@ -5,7 +5,7 @@
     "type": "module",
     "scripts": {
         "build": "node esbuild",
-        "dev": "node esbuild --dev"
+        "dev": "node esbuild --dev --spa"
     },
     "repository": {
         "type": "git",

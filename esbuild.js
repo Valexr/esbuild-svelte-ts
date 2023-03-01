@@ -4,12 +4,10 @@ import preprocess from 'svelte-preprocess';
 import rm from './env/rm.js';
 import log from './env/log.js';
 import meta from './env/meta.js';
+import proxy from './env/proxy.js';
 
 const DEV = process.argv.includes('--dev');
-
-const serveOptions = {
-    servedir: 'public'
-};
+const SPA = process.argv.includes('--spa');
 
 const svelteOptions = {
     compileOptions: {
@@ -46,7 +44,9 @@ if (DEV) {
     const ctx = await context(buildOptions);
 
     await ctx.watch();
-    await ctx.serve(serveOptions);
+    await ctx.serve({ servedir: 'public' });
+
+    SPA && proxy().listen(8080);
 
     process.on('SIGTERM', ctx.dispose);
     process.on("exit", ctx.dispose);
