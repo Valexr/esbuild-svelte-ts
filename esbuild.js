@@ -35,7 +35,8 @@ const buildOptions = {
     inject: DEV ? ['./env/lr.js'] : [],
     legalComments: "none",
     logLevel: 'info',
-    metafile: !DEV
+    metafile: !DEV,
+    mainFields: ['svelte', 'module', 'main'],
 };
 
 await rm('public/build');
