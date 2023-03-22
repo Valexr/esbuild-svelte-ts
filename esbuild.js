@@ -39,7 +39,7 @@ const buildOptions = {
     mainFields: ['svelte', 'module', 'main'],
 };
 
-await rm('public/build');
+await rm(['public/build']);
 
 if (DEV) {
     const ctx = await context(buildOptions);
