@@ -5,7 +5,8 @@
     "type": "module",
     "scripts": {
         "build": "node esbuild",
-        "dev": "node esbuild --dev --spa"
+        "dev": "node esbuild --dev --spa",
+        "preview": "npx esbuild --servedir=public"
     },
     "repository": {
         "type": "git",
@@ -13,10 +14,10 @@
     },
     "devDependencies": {
         "@tsconfig/svelte": "^3.0.0",
-        "esbuild": "^0.17.11",
+        "esbuild": "^0.17.12",
         "esbuild-svelte": "^0.7.3",
-        "svelte": "^3.56.0",
-        "svelte-preprocess": "^5.0.1",
+        "svelte": "^3.57.0",
+        "svelte-preprocess": "^5.0.3",
         "tslib": "^2.5.0",
         "typescript": "^4.9.5"
     }
