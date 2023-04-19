@@ -10,9 +10,9 @@ const DEV = process.argv.includes('--dev');
 const SPA = process.argv.includes('--spa');
 
 const svelteOptions = {
-    compileOptions: {
+    compilerOptions: {
         dev: DEV,
-        css: false,
+        css: 'external',
         immutable: true
     },
     preprocess: [
