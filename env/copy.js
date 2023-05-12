@@ -1,18 +1,17 @@
-import { cpSync } from 'fs';
-import { join, dirname } from 'path';
+import { cp } from 'fs/promises';
 
-export function copy(paths = []) {
+export default function copy(paths = []) {
     return {
         name: 'copy',
         setup(build) {
-            build.onEnd((end) => {
-                paths.forEach(({ from, to }) => {
-                    cpSync(from, join(dirname(build.initialOptions.outfile), to), {
+            build.onEnd(async (end) => {
+                for (const [from, to] of paths) {
+                    await cp(from, to, {
                         recursive: true,
                         force: true,
                         dereference: true,
                     });
-                });
+                };
             });
         },
     };
