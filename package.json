@@ -13,10 +13,10 @@
         "url": "https://github.com/Valexr/esbuild-svelte-ts.git"
     },
     "devDependencies": {
-        "esbuild": "^0.17.19",
+        "esbuild": "^0.18.3",
         "esbuild-svelte": "^0.7.3",
         "svelte": "^3.59.1",
         "svelte-preprocess": "^5.0.4",
-        "typescript": "^5.0.4"
+        "typescript": "^5.1.3"
     }
 }
