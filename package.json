@@ -13,9 +13,9 @@
         "url": "https://github.com/Valexr/esbuild-svelte-ts.git"
     },
     "devDependencies": {
-        "esbuild": "^0.18.12",
+        "esbuild": "^0.18.15",
         "esbuild-svelte": "^0.7.4",
-        "svelte": "^4.0.5",
+        "svelte": "^4.1.1",
         "svelte-preprocess": "^5.0.4",
         "typescript": "^5.1.6"
     }
