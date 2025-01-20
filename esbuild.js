@@ -1,22 +1,27 @@
 import { build, context } from 'esbuild';
 import svelte from 'esbuild-svelte';
-import preprocess from 'svelte-preprocess';
+import { sveltePreprocess } from 'svelte-preprocess';
 import rm from './env/rm.js';
 import log from './env/log.js';
 import meta from './env/meta.js';
 import proxy from './env/proxy.js';
+import pkg from './package.json' with {type: 'json'};
 
 const DEV = process.argv.includes('--dev');
 const SPA = process.argv.includes('--spa');
 
 const svelteOptions = {
     compilerOptions: {
-        dev: DEV,
         css: 'external',
-        immutable: true
+        cssHash: ({ css, filename, name, hash }) => {
+            return `${pkg.name}-${hash(css)}`;
+        },
+        runes: true,
+        immutable: true,
+        modernAst: true
     },
     preprocess: [
-        preprocess({
+        sveltePreprocess({
             sourceMap: DEV,
             typescript: true,
         }),
@@ -33,10 +38,10 @@ const buildOptions = {
     loader: { '.svg': 'text' },
     plugins: [svelte(svelteOptions), log],
     inject: DEV ? ['./env/lr.js'] : [],
-    legalComments: "none",
+    legalComments: 'none',
     logLevel: 'info',
     metafile: !DEV,
-    mainFields: ['svelte', 'module', 'main'],
+    conditions: ['development', 'production']
 };
 
 await rm(['public/build']);
@@ -50,7 +55,7 @@ if (DEV) {
     SPA && proxy().listen(8080);
 
     process.on('SIGTERM', ctx.dispose);
-    process.on("exit", ctx.dispose);
+    process.on('exit', ctx.dispose);
 } else {
     await meta(await build(buildOptions));
 }

@@ -1,11 +1,10 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
     import Gh from "$lib/components/Gh.svelte";
     import type { Name, Repository } from "$types";
 </script>
 
 <script lang="ts">
-    export let name: Name;
-    export let repository: Repository;
+    let { name, repository }: { name: Name; repository: Repository } = $props();
 </script>
 
 <svelte:head>
